@@ -14,4 +14,7 @@ const SmurfList = props => {
 
 
 
-export default SmurfList;
+export default connect(
+    null,
+    {  }
+  )(SmurfList);
