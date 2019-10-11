@@ -6,10 +6,9 @@ import {
 } from "../action/index";
 
 const initialState = {
-    smurfs: [],
-    isFetching: false,
-    error: ""
-
+  smurfs: [],
+  isFetching: false,
+  error: ""
 };
 
 const reducer = (state = initialState, action) => {
@@ -31,6 +30,11 @@ const reducer = (state = initialState, action) => {
         ...state,
         isFetching: false,
         error: action.payload
+      };
+    case ADDING_SMURF_SUCCESS:
+      return {
+        ...state,
+        smurfs: action.payload
       };
 
     default:

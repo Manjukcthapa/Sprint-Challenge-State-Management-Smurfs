@@ -1,6 +1,8 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
+import { connect } from "react-redux";
+import { addSmurf } from "../store/action";
 
-const SmurfForm = props => {
+const Form = props => {
   const [newSmurf, setNewSmurf] = useState({
     name: "",
     age: "",
@@ -9,7 +11,8 @@ const SmurfForm = props => {
 
   const handleSubmit = e => {
     e.preventDefault();
-  
+    props.addSmurf(newSmurf);
+    setNewSmurf({ name: "", age: "", height: ""})
   };
 
   const handleChanges = e => {
@@ -19,29 +22,37 @@ const SmurfForm = props => {
 
   return (
     <div>
-      <input
-        name="name"
-        type="text"
-        placeholder="name"
-        onChange={handleChanges}
-      />
-      <input
-        name="age"
-        type="text"
-        placeholder="age"
-        onChange={handleChanges}
-      />
-      <input
-        name="height"
-        type="text"
-        placeholder="height"
-        onChange={handleChanges}
-      />
-      <button type="submit" onClick={handleSubmit}>
-        Add Friends
-      </button>
+      <form>
+        <input
+          name="name"
+          type="text"
+          placeholder="name"
+          value={newSmurf.name}
+          onChange={handleChanges}
+        ></input>
+        <input
+          name="age"
+          type="text"
+          placeholder="age"
+          value={newSmurf.age}
+          onChange={handleChanges}
+        ></input>
+        <input
+          name="height"
+          type="text"
+          placeholder="height"
+          value={newSmurf.height}
+          onChange={handleChanges}
+        ></input>
+        <button type="submit" onClick={handleSubmit}>
+          Submit your smurt
+        </button>
+      </form>
     </div>
   );
 };
 
-export default SmurfForm;
+export default connect(
+  null,
+  { addSmurf }
+)(Form);
