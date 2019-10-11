@@ -3,6 +3,7 @@ import axios from "axios"
 export const FETCHING_SMURFS_START = "FETCHING_SMURFS_START";
 export const FETCHING_SMURFS_SUCCESS = "FETCHING_SMURFS_SUCCESS";
 export const FETCHING_SMURFS_FAILURE = "FETCHING_SMURFS_FAILURE";
+export const ADDING_SMURF_SUCCESS= "ADDING_SMURF_SUCCESS";
 
 const fetchSmurfs = () => dispatch => {
     dispatch({ type: FETCHING_SMURFS_START });
