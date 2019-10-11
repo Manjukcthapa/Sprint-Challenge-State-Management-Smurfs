@@ -23,6 +23,7 @@ const Form = props => {
   return (
     <div>
       <form>
+          <h1>Friends Form</h1>
         <input
           name="name"
           type="text"
@@ -45,7 +46,7 @@ const Form = props => {
           onChange={handleChanges}
         ></input>
         <button type="submit" onClick={handleSubmit}>
-          Submit your smurt
+          Submit Form
         </button>
       </form>
     </div>
