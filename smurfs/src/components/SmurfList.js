@@ -12,9 +12,13 @@ const SmurfList = props => {
   </div>
 };
 
-
+const mapStateToProps = state => {
+    return {
+      smurf: state.smurfs
+    };
+  };
 
 export default connect(
-    null,
+    mapStateToProps,
     {  }
   )(SmurfList);
